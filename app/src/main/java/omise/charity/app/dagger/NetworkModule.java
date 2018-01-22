@@ -4,13 +4,13 @@ import javax.inject.Singleton;
 
 import dagger.Module;
 import dagger.Provides;
-import okhttp3.OkHttpClient;
 import omise.charity.app.Constants;
+import omise.charity.app.charity.CharityDataService;
 import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
 
 @Module
-class NetworkModule {
+public class NetworkModule {
 //	@Singleton
 //	@Provides
 //	OkHttpClient providesHttpClient() {
@@ -42,11 +42,15 @@ class NetworkModule {
 
 	@Provides
 	@Singleton
-	Retrofit providesRetrofitClient(OkHttpClient httpClient) {
+	Retrofit providesRetrofitClient() {
 		return new Retrofit.Builder()
 				.baseUrl(Constants.BASE_URL)
-				.client(httpClient)
 				.addConverterFactory(GsonConverterFactory.create())
 				.build();
+	}
+
+	@Provides
+	CharityDataService providesCharityDataService(Retrofit retrofit) {
+		return retrofit.create(CharityDataService.class);
 	}
 }

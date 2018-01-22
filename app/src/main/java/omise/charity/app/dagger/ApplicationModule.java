@@ -7,6 +7,9 @@ import javax.inject.Singleton;
 
 import dagger.Module;
 import dagger.Provides;
+import omise.charity.app.charity.CharityDataService;
+import omise.charity.app.charity.CharityRepository;
+import omise.charity.app.charity.CharityRepositoryImpl;
 
 @Module
 public class ApplicationModule {
@@ -20,5 +23,10 @@ public class ApplicationModule {
 	@Singleton
 	Context providesContext() {
 		return mApplication;
+	}
+
+	@Provides
+	CharityRepository providesCharityRepository(CharityDataService charityDataService){
+		return new CharityRepositoryImpl(charityDataService);
 	}
 }

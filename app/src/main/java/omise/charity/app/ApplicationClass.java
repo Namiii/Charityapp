@@ -5,6 +5,7 @@ import android.app.Application;
 import omise.charity.app.dagger.ApplicationComponent;
 import omise.charity.app.dagger.ApplicationModule;
 import omise.charity.app.dagger.DaggerApplicationComponent;
+import omise.charity.app.dagger.NetworkModule;
 
 public class ApplicationClass extends Application {
 	private ApplicationComponent mApplicationComponent;
@@ -18,6 +19,7 @@ public class ApplicationClass extends Application {
 	private void setupDagger() {
 		mApplicationComponent = DaggerApplicationComponent.builder()
 				.applicationModule(new ApplicationModule(this))
+				.networkModule(new NetworkModule())
 				.build();
 	}
 
