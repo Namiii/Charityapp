@@ -6,7 +6,7 @@ import dagger.Component;
 import omise.charity.app.MainActivity;
 
 @Singleton
-@Component(modules = {ApplicationModule.class})
+@Component(modules = {ApplicationModule.class, NetworkModule.class})
 public interface ApplicationComponent {
-	void inject (MainActivity target);
+	void inject(MainActivity target);
 }
