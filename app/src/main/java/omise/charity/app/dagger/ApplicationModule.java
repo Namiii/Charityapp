@@ -10,6 +10,8 @@ import dagger.Provides;
 import omise.charity.app.charity.CharityDataService;
 import omise.charity.app.charity.CharityRepository;
 import omise.charity.app.charity.CharityRepositoryImpl;
+import omise.charity.app.charity.charityList.CharityListPresenter;
+import omise.charity.app.charity.charityList.CharityListPresenterImpl;
 
 @Module
 public class ApplicationModule {
@@ -26,7 +28,12 @@ public class ApplicationModule {
 	}
 
 	@Provides
-	CharityRepository providesCharityRepository(CharityDataService charityDataService){
+	CharityRepository providesCharityRepository(CharityDataService charityDataService) {
 		return new CharityRepositoryImpl(charityDataService);
+	}
+
+	@Provides
+	CharityListPresenter providesCharityListPresenter(CharityRepository charityRepository) {
+		return new CharityListPresenterImpl(charityRepository);
 	}
 }
