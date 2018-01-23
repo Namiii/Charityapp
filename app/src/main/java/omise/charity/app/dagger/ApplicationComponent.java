@@ -3,7 +3,7 @@ package omise.charity.app.dagger;
 import javax.inject.Singleton;
 
 import dagger.Component;
-import omise.charity.app.MainActivity;
+import omise.charity.app.charity.charityList.MainActivity;
 
 @Singleton
 @Component(modules = {ApplicationModule.class, NetworkModule.class})
