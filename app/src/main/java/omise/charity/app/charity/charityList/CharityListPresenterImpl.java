@@ -27,6 +27,8 @@ public class CharityListPresenterImpl implements CharityListPresenter {
 		if (mRepository == null) return;
 
 		mView.isLoading(true);
+		mView.hideError();
+		mView.hideData();
 
 		mRepository.getCharities(new ResultCallback<CharityList>() {
 			@Override
@@ -34,6 +36,7 @@ public class CharityListPresenterImpl implements CharityListPresenter {
 				if (mView == null) return;
 
 				mView.isLoading(false);
+				mView.hideError();
 				mView.setItems(charityList);
 			}
 
@@ -42,6 +45,7 @@ public class CharityListPresenterImpl implements CharityListPresenter {
 				if (mView == null) return;
 
 				mView.isLoading(false);
+				mView.hideData();
 				mView.showError(error);
 			}
 		});

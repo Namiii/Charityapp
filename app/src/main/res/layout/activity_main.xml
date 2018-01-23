@@ -24,4 +24,20 @@
 		app:layout_constraintTop_toTopOf="parent"
 		tools:visibility="visible"/>
 
+	<TextView
+		android:id="@+id/main_activity_error_view"
+		android:layout_width="match_parent"
+		android:layout_height="wrap_content"
+		android:gravity="center"
+		android:padding="@dimen/padding"
+		android:textColor="@color/SecondaryTextColor"
+		android:textSize="@dimen/error_text_size"
+		android:visibility="gone"
+		app:layout_constraintBottom_toBottomOf="parent"
+		app:layout_constraintLeft_toLeftOf="parent"
+		app:layout_constraintRight_toRightOf="parent"
+		app:layout_constraintTop_toTopOf="parent"
+		tools:text="This is an error, try again!"
+		tools:visibility="visible"/>
+
 </android.support.constraint.ConstraintLayout>

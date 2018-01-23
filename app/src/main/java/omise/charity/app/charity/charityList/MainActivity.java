@@ -7,6 +7,7 @@ import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ListView;
 import android.widget.ProgressBar;
+import android.widget.TextView;
 
 import javax.inject.Inject;
 
@@ -22,14 +23,17 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
 	public CharityListPresenter mPresenter;
 	private CharityAdapter mAdapter;
 	private ProgressBar mProgressBar;
+	private TextView mErrorView;
+	private ListView mCharitiesListView;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_main);
 
-		ListView mCharitiesListView = findViewById(R.id.main_activity_list_view);
+		mCharitiesListView = findViewById(R.id.main_activity_list_view);
 		mProgressBar = findViewById(R.id.main_activity_progress_bar);
+		mErrorView = findViewById(R.id.main_activity_error_view);
 
 		mAdapter = new CharityAdapter(this);
 		mCharitiesListView.setAdapter(mAdapter);
@@ -51,21 +55,26 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
 		mPresenter.stop();
 	}
 
-	@Override
-	public void finish() {
-		super.finish();
-	}
-
 	public void setItems(CharityList items) {
+		mCharitiesListView.setVisibility(View.VISIBLE);
 		mAdapter.setItems(items.getData());
 	}
 
 	public void showError(String error) {
-		//TODO
+		mErrorView.setText(error);
+		mErrorView.setVisibility(View.VISIBLE);
+	}
+
+	public void hideError() {
+		mErrorView.setVisibility(View.GONE);
 	}
 
 	public void isLoading(boolean isLoading) {
 		mProgressBar.setVisibility(isLoading ? View.VISIBLE : View.GONE);
+	}
+
+	public void hideData() {
+		mCharitiesListView.setVisibility(View.GONE);
 	}
 
 	@Override
