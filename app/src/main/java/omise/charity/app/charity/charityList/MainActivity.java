@@ -1,8 +1,10 @@
 package omise.charity.app.charity.charityList;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ListView;
 import android.widget.ProgressBar;
 
@@ -10,9 +12,12 @@ import javax.inject.Inject;
 
 import omise.charity.app.ApplicationClass;
 import omise.charity.app.R;
+import omise.charity.app.ScreenTransitionManager;
 import omise.charity.app.charity.CharityList;
+import omise.charity.app.charity.CharityModel;
+import omise.charity.app.charity.charityDetail.CharityDetailActivity;
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends AppCompatActivity implements AdapterView.OnItemClickListener {
 	@Inject
 	public CharityListPresenter mPresenter;
 	private CharityAdapter mAdapter;
@@ -28,6 +33,7 @@ public class MainActivity extends AppCompatActivity {
 
 		mAdapter = new CharityAdapter(this);
 		mCharitiesListView.setAdapter(mAdapter);
+		mCharitiesListView.setOnItemClickListener(this);
 
 		((ApplicationClass) getApplication()).getComponent().inject(this);
 	}
@@ -45,6 +51,11 @@ public class MainActivity extends AppCompatActivity {
 		mPresenter.stop();
 	}
 
+	@Override
+	public void finish() {
+		super.finish();
+	}
+
 	public void setItems(CharityList items) {
 		mAdapter.setItems(items.getData());
 	}
@@ -55,5 +66,13 @@ public class MainActivity extends AppCompatActivity {
 
 	public void isLoading(boolean isLoading) {
 		mProgressBar.setVisibility(isLoading ? View.VISIBLE : View.GONE);
+	}
+
+	@Override
+	public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
+		Intent intent = new Intent(this, CharityDetailActivity.class);
+		intent.putExtra("charity_data", (CharityModel) adapterView.getItemAtPosition(i));
+		startActivity(intent);
+		ScreenTransitionManager.setActivitySlideRightIn(this);
 	}
 }
