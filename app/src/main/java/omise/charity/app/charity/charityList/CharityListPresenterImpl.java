@@ -23,7 +23,7 @@ public class CharityListPresenterImpl implements CharityListPresenter {
 	}
 
 	@Override
-	public void getItems(ResultCallback<CharityList> callback) {
+	public void getItems() {
 		if (mRepository == null) return;
 
 		mRepository.getCharities(new ResultCallback<CharityList>() {
