@@ -9,6 +9,8 @@ import android.widget.BaseAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.squareup.picasso.Picasso;
+
 import java.util.List;
 
 import omise.charity.app.R;
@@ -59,7 +61,10 @@ public class CharityAdapter extends BaseAdapter {
 		}
 		CharityModel charityModel = mCharities.get(i);
 		holder.name.setText(charityModel.getName());
-		//TODO do the image
+		Picasso.with(mContext).
+				load(charityModel.getLogoUrl())
+				.fit()
+				.into(holder.logo);
 		return convertView;
 	}
 
