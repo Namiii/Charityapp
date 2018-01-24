@@ -3,10 +3,15 @@ package omise.charity.app.dagger;
 import android.app.Application;
 import android.content.Context;
 
+import java.security.GeneralSecurityException;
+
 import javax.inject.Singleton;
 
+import co.omise.android.Client;
 import dagger.Module;
 import dagger.Provides;
+import omise.charity.app.BuildConfig;
+import omise.charity.app.OmiseClientManager;
 import omise.charity.app.charity.CharityDataService;
 import omise.charity.app.charity.CharityRepository;
 import omise.charity.app.charity.CharityRepositoryImpl;
@@ -35,5 +40,21 @@ public class ApplicationModule {
 	@Provides
 	CharityListPresenter providesCharityListPresenter(CharityRepository charityRepository) {
 		return new CharityListPresenterImpl(charityRepository);
+	}
+
+	@Singleton
+	@Provides
+	Client providesOmiseCLient() {
+		try {
+			return new Client(BuildConfig.OMISE_P_K);
+		} catch (GeneralSecurityException e) {
+			e.printStackTrace();
+		}
+		return null;
+	}
+
+	@Provides
+	OmiseClientManager providesOmiseClientManager(Client client) {
+		return new OmiseClientManager(client);
 	}
 }
