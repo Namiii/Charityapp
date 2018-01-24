@@ -7,4 +7,5 @@
 	<color name="itemBackgroundPressed">#cfcfcf</color>
 	<color name="mainTextColor">#4d4d4d</color>
 	<color name="SecondaryTextColor">#8a8a8a</color>
+	<color name="disabledColor">#939191</color>
 </resources>

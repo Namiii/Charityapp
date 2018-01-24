@@ -158,6 +158,19 @@
 			app:layout_constraintTop_toBottomOf="@id/charity_detail_security_amount_title"
 			tools:text="10000"/>
 
+		<ProgressBar
+			android:id="@+id/charity_detail_donate_progress_bar"
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:theme="@style/Progressbar.White"
+			android:visibility="gone"
+			android:layout_marginTop="@dimen/padding_double"
+			app:layout_constraintBottom_toBottomOf="parent"
+			app:layout_constraintLeft_toLeftOf="parent"
+			app:layout_constraintRight_toRightOf="parent"
+			app:layout_constraintTop_toBottomOf="@id/charity_detail_amount_et"
+			tools:visibility="visible"/>
+
 		<Button
 			android:id="@+id/charity_detail_donate_button"
 			android:layout_width="match_parent"
@@ -170,5 +183,6 @@
 			app:layout_constraintLeft_toLeftOf="parent"
 			app:layout_constraintRight_toRightOf="parent"
 			app:layout_constraintTop_toBottomOf="@id/charity_detail_amount_et"/>
+
 	</android.support.constraint.ConstraintLayout>
 </ScrollView>
