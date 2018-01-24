@@ -12,6 +12,7 @@ import android.widget.TextView;
 import javax.inject.Inject;
 
 import omise.charity.app.ApplicationClass;
+import omise.charity.app.Constants;
 import omise.charity.app.R;
 import omise.charity.app.ScreenTransitionManager;
 import omise.charity.app.charity.CharityList;
@@ -80,7 +81,7 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
 	@Override
 	public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
 		Intent intent = new Intent(this, CharityDetailActivity.class);
-		intent.putExtra("charity_data", (CharityModel) adapterView.getItemAtPosition(i));
+		intent.putExtra(Constants.CHARITY_DATA, (CharityModel) adapterView.getItemAtPosition(i));
 		startActivity(intent);
 		ScreenTransitionManager.setActivitySlideRightIn(this);
 	}
