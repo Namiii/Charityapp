@@ -11,11 +11,11 @@ import omise.charity.app.charity.PaymentModel;
 
 public class CharityDetailPresenterImpl implements CharityDetailPresenter {
 	private CharityDetailActivity mView;
-	private CharityRepository mCharityRespoistory;
+	private CharityRepository mCharityRepository;
 	private OmiseClientManager mOmiseClientManager;
 
 	public CharityDetailPresenterImpl(CharityRepository charityRepository, OmiseClientManager omiseClientManager) {
-		this.mCharityRespoistory = charityRepository;
+		this.mCharityRepository = charityRepository;
 		this.mOmiseClientManager = omiseClientManager;
 	}
 
@@ -69,14 +69,14 @@ public class CharityDetailPresenterImpl implements CharityDetailPresenter {
 				new ResultCallback<String>() {
 					@Override
 					public void Success(String token) {
-						if (mCharityRespoistory == null) return;
+						if (mCharityRepository == null) return;
 
 						DonationModel donationModel =
 								new DonationModel(mFullName,
 										token,
 										amount);
 
-						mCharityRespoistory.makeDonation(donationModel,
+						mCharityRepository.makeDonation(donationModel,
 								new ResultCallback<Boolean>() {
 									@Override
 									public void Success(Boolean success) {
