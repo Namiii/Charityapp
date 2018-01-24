@@ -1,0 +1,174 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView
+	xmlns:android="http://schemas.android.com/apk/res/android"
+	xmlns:app="http://schemas.android.com/apk/res-auto"
+	xmlns:tools="http://schemas.android.com/tools"
+	android:layout_width="match_parent"
+	android:layout_height="match_parent"
+	android:fillViewport="true">
+
+	<android.support.constraint.ConstraintLayout
+		xmlns:android="http://schemas.android.com/apk/res/android"
+		xmlns:app="http://schemas.android.com/apk/res-auto"
+		xmlns:tools="http://schemas.android.com/tools"
+		android:layout_width="match_parent"
+		android:layout_height="wrap_content"
+		android:padding="@dimen/padding_double">
+
+		<ImageView
+			android:id="@+id/charity_detail_logo"
+			android:layout_width="@dimen/user_image_size"
+			android:layout_height="@dimen/user_image_size"
+			android:background="@drawable/logo_image_grey_border"
+			android:padding="2dp"
+			app:layout_constraintLeft_toLeftOf="parent"
+			app:layout_constraintTop_toTopOf="parent"
+			tools:src="@tools:sample/avatars"/>
+
+		<TextView
+			android:id="@+id/charity_detail_name"
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:layout_marginLeft="@dimen/padding_double"
+			android:textColor="@color/mainTextColor"
+			android:textSize="@dimen/title_text_size"
+			android:textStyle="bold"
+			app:layout_constraintBottom_toBottomOf="@id/charity_detail_logo"
+			app:layout_constraintLeft_toRightOf="@id/charity_detail_logo"
+			app:layout_constraintTop_toTopOf="@id/charity_detail_logo"
+			tools:text="@tools:sample/first_names"/>
+
+		<TextView
+			android:id="@+id/charity_detail_full_name_title"
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:layout_marginTop="@dimen/padding_double"
+			android:text="@string/charity_detail_full_name_title"
+			android:textColor="@color/mainTextColor"
+			android:textSize="@dimen/title_text_size"
+			android:textStyle="bold"
+			app:layout_constraintLeft_toLeftOf="parent"
+			app:layout_constraintTop_toBottomOf="@id/charity_detail_logo"/>
+
+		<EditText
+			android:id="@+id/charity_detail_full_name_et"
+			android:layout_width="match_parent"
+			android:layout_height="wrap_content"
+			android:imeOptions="actionNext"
+			android:textColor="@color/SecondaryTextColor"
+			android:textSize="@dimen/edit_text_size"
+			app:layout_constraintLeft_toLeftOf="parent"
+			app:layout_constraintTop_toBottomOf="@id/charity_detail_full_name_title"
+			tools:text="Test User"/>
+
+		<TextView
+			android:id="@+id/charity_detail_card_number_title"
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:layout_marginTop="@dimen/padding"
+			android:text="@string/label_card_number"
+			android:textColor="@color/mainTextColor"
+			android:textSize="@dimen/title_text_size"
+			android:textStyle="bold"
+			app:layout_constraintLeft_toLeftOf="parent"
+			app:layout_constraintTop_toBottomOf="@id/charity_detail_full_name_et"/>
+
+		<co.omise.android.ui.CreditCardEditText
+			android:id="@+id/charity_detail_card_number_et"
+			android:layout_width="match_parent"
+			android:layout_height="wrap_content"
+			android:imeOptions="actionNext"
+			app:layout_constraintLeft_toLeftOf="parent"
+			app:layout_constraintTop_toBottomOf="@id/charity_detail_card_number_title"
+			tools:text="4111-1111-1111-1111"/>
+
+		<TextView
+			android:id="@+id/charity_detail_expiry_date_title"
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:layout_marginTop="@dimen/padding"
+			android:text="@string/charity_detail_expiry_title"
+			android:textColor="@color/mainTextColor"
+			android:textSize="@dimen/title_text_size"
+			android:textStyle="bold"
+			app:layout_constraintLeft_toLeftOf="parent"
+			app:layout_constraintTop_toBottomOf="@id/charity_detail_card_number_et"/>
+
+		<Spinner
+			android:id="@+id/charity_detail_expiry_month_spinner"
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:layout_marginTop="@dimen/padding"
+			app:layout_constraintLeft_toLeftOf="parent"
+			app:layout_constraintTop_toBottomOf="@id/charity_detail_expiry_date_title"/>
+
+		<Spinner
+			android:id="@+id/charity_detail_expiry_year_spinner"
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:layout_marginTop="@dimen/padding"
+			app:layout_constraintLeft_toRightOf="@id/charity_detail_expiry_date_title"
+			app:layout_constraintTop_toBottomOf="@id/charity_detail_expiry_date_title"/>
+
+		<TextView
+			android:id="@+id/charity_detail_security_code_title"
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:layout_marginTop="@dimen/padding"
+			android:text="@string/charity_detail_security_code_title"
+			android:textColor="@color/mainTextColor"
+			android:textSize="@dimen/title_text_size"
+			android:textStyle="bold"
+			app:layout_constraintLeft_toLeftOf="parent"
+			app:layout_constraintTop_toBottomOf="@id/charity_detail_expiry_year_spinner"/>
+
+		<EditText
+			android:id="@+id/charity_detail_security_code_et"
+			android:layout_width="64dp"
+			android:layout_height="wrap_content"
+			android:imeOptions="actionNext"
+			android:inputType="numberPassword"
+			android:textColor="@color/SecondaryTextColor"
+			android:textSize="@dimen/edit_text_size"
+			app:layout_constraintLeft_toLeftOf="parent"
+			app:layout_constraintTop_toBottomOf="@id/charity_detail_security_code_title"
+			tools:text="235"/>
+
+		<TextView
+			android:id="@+id/charity_detail_security_amount_title"
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:layout_marginTop="@dimen/padding"
+			android:text="@string/charity_detail_amount_title"
+			android:textColor="@color/mainTextColor"
+			android:textSize="@dimen/title_text_size"
+			android:textStyle="bold"
+			app:layout_constraintLeft_toLeftOf="parent"
+			app:layout_constraintTop_toBottomOf="@id/charity_detail_security_code_et"/>
+
+		<EditText
+			android:id="@+id/charity_detail_amount_et"
+			android:layout_width="128dp"
+			android:layout_height="wrap_content"
+			android:imeOptions="actionDone"
+			android:inputType="number"
+			android:textColor="@color/SecondaryTextColor"
+			android:textSize="@dimen/edit_text_size"
+			app:layout_constraintLeft_toLeftOf="parent"
+			app:layout_constraintTop_toBottomOf="@id/charity_detail_security_amount_title"
+			tools:text="10000"/>
+
+		<Button
+			android:id="@+id/charity_detail_donate_button"
+			android:layout_width="match_parent"
+			android:layout_height="wrap_content"
+			android:layout_marginTop="@dimen/padding_double"
+			android:background="@drawable/donate_button_bg"
+			android:text="@string/charity_detail_donate_button_text"
+			android:textColor="@android:color/white"
+			app:layout_constraintBottom_toBottomOf="parent"
+			app:layout_constraintLeft_toLeftOf="parent"
+			app:layout_constraintRight_toRightOf="parent"
+			app:layout_constraintTop_toBottomOf="@id/charity_detail_amount_et"/>
+	</android.support.constraint.ConstraintLayout>
+</ScrollView>

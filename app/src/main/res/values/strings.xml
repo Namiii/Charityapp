@@ -1,3 +1,9 @@
 <resources>
 	<string name="app_name">Charity app</string>
+	<string name="charity_detail_full_name_title">Full name</string>
+	<string name="charity_detail_card_number_title">Card number</string>
+	<string name="charity_detail_expiry_title">Expiry date</string>
+	<string name="charity_detail_security_code_title">ccv2</string>
+	<string name="charity_detail_amount_title">Amount (in Bht)</string>
+	<string name="charity_detail_donate_button_text">Donate</string>
 </resources>
