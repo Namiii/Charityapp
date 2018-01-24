@@ -15,6 +15,8 @@ import omise.charity.app.OmiseClientManager;
 import omise.charity.app.charity.CharityDataService;
 import omise.charity.app.charity.CharityRepository;
 import omise.charity.app.charity.CharityRepositoryImpl;
+import omise.charity.app.charity.charityDetail.CharityDetailPresenter;
+import omise.charity.app.charity.charityDetail.CharityDetailPresenterImpl;
 import omise.charity.app.charity.charityList.CharityListPresenter;
 import omise.charity.app.charity.charityList.CharityListPresenterImpl;
 
@@ -44,7 +46,7 @@ public class ApplicationModule {
 
 	@Singleton
 	@Provides
-	Client providesOmiseCLient() {
+	Client providesOmiseClient() {
 		try {
 			return new Client(BuildConfig.OMISE_P_K);
 		} catch (GeneralSecurityException e) {
@@ -56,5 +58,10 @@ public class ApplicationModule {
 	@Provides
 	OmiseClientManager providesOmiseClientManager(Client client) {
 		return new OmiseClientManager(client);
+	}
+
+	@Provides
+	CharityDetailPresenter providesCharityDetailPresenter(CharityRepository charityRepository, OmiseClientManager omiseClientManager) {
+		return new CharityDetailPresenterImpl(charityRepository, omiseClientManager);
 	}
 }
