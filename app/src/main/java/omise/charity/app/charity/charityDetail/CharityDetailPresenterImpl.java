@@ -105,6 +105,7 @@ public class CharityDetailPresenterImpl implements CharityDetailPresenter {
 					public void failed(String error) {
 						if (mView == null) return;
 
+						mView.isLoading(false);
 						mView.showError(error);
 					}
 				});
