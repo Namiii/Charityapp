@@ -180,6 +180,7 @@
 			android:background="@drawable/donate_button_bg"
 			android:text="@string/charity_detail_donate_button_text"
 			android:textColor="@android:color/white"
+			android:textSize="@dimen/button_text_size"
 			app:layout_constraintBottom_toBottomOf="parent"
 			app:layout_constraintLeft_toLeftOf="parent"
 			app:layout_constraintRight_toRightOf="parent"
