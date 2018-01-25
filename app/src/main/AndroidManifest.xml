@@ -24,6 +24,7 @@
 		<activity
 			android:name=".charity.charityDetail.CharityDetailActivity"
 			android:screenOrientation="portrait"/>
+		<activity android:name=".charity.charityDetail.DonationSuccessActivity"/>
 	</application>
 
 </manifest>

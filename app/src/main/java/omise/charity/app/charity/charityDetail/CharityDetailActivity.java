@@ -23,6 +23,7 @@ import co.omise.android.ui.CreditCardEditText;
 import omise.charity.app.ApplicationClass;
 import omise.charity.app.Constants;
 import omise.charity.app.R;
+import omise.charity.app.ScreenTransitionManager;
 import omise.charity.app.UiHelper;
 import omise.charity.app.charity.CharityModel;
 
@@ -118,7 +119,7 @@ public class CharityDetailActivity extends AppCompatActivity {
 		ViewCompat.setTranslationZ(mProgressBar, isLoading ? UiHelper.dpToPx(5)
 				: UiHelper.dpToPx(0));
 		mDonateButton.setText(isLoading ? "" : getString(R.string.charity_detail_donate_button_text));
-		mDonateButton.setEnabled(isLoading);
+		mDonateButton.setEnabled(!isLoading);
 	}
 
 	public void hideErrors() {
@@ -150,6 +151,14 @@ public class CharityDetailActivity extends AppCompatActivity {
 	}
 
 	public void navigateToNextScreen() {
-		Toast.makeText(this, "GOOOOO", Toast.LENGTH_LONG).show();
+		startActivity(new Intent(this, DonationSuccessActivity.class));
+		ScreenTransitionManager.setActivitySlideRightIn(this);
+		finish();
+	}
+
+	@Override
+	public void onBackPressed() {
+		super.onBackPressed();
+		ScreenTransitionManager.setActivitySlideRightOut(this);
 	}
 }
