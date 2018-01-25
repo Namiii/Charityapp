@@ -121,24 +121,27 @@ public class CharityDetailActivity extends AppCompatActivity {
 		mDonateButton.setEnabled(isLoading);
 	}
 
-	public void hideError() {
-
+	public void hideErrors() {
+		mFullNameEditText.setError(null);
+		mCreditCardNumberEditText.setError(null);
+		mSecurityCodeEditText.setError(null);
+		mAmountEditText.setError(null);
 	}
 
 	public void showNameError() {
-
+		mFullNameEditText.setError(getString(R.string.charity_detail_name_error));
 	}
 
 	public void showCreditCardError() {
-
+		mCreditCardNumberEditText.setError(getString(R.string.charity_detail_credit_card_error));
 	}
 
 	public void showSecurityCodeError() {
-
+		mSecurityCodeEditText.setError(getString(R.string.charity_detail_security_code_error));
 	}
 
 	public void showAmountError() {
-
+		mAmountEditText.setError(getString(R.string.charity_detail_amount_error));
 	}
 
 	public void showError(String error) {

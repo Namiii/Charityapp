@@ -6,4 +6,8 @@
 	<string name="charity_detail_security_code_title">ccv2</string>
 	<string name="charity_detail_amount_title">Amount (in Bht)</string>
 	<string name="charity_detail_donate_button_text">Donate</string>
+	<string name="charity_detail_name_error">Enter a valid name</string>
+	<string name="charity_detail_credit_card_error">Enter a valid card number</string>
+	<string name="charity_detail_security_code_error">Enter a valid security code</string>
+	<string name="charity_detail_amount_error">Enter a valid security code</string>
 </resources>

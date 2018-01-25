@@ -31,25 +31,29 @@ public class CharityDetailPresenterImpl implements CharityDetailPresenter {
 
 	@Override
 	public void donationButtonPressed(final String mFullName, String mCardNumber, int expiryMonth, int expiryYear, String securityCode, final int amount) {
+		boolean isValid = true;
+
 		if (TextUtils.isEmpty(mFullName)) {
 			mView.showNameError();
-			return;
+			isValid = false;
 		}
 
 		if (TextUtils.isEmpty(mCardNumber) && ValidationHelper.isCreditCardNumberValid(mCardNumber)) {
 			mView.showCreditCardError();
-			return;
+			isValid = false;
 		}
 
 		if (TextUtils.isEmpty(securityCode)) {
 			mView.showSecurityCodeError();
-			return;
+			isValid = false;
 		}
 
 		if (amount == 0) {
 			mView.showAmountError();
-			return;
+			isValid = false;
 		}
+
+		if (!isValid) return;
 
 		if (mOmiseClientManager == null) return;
 
@@ -63,7 +67,7 @@ public class CharityDetailPresenterImpl implements CharityDetailPresenter {
 
 
 		mView.isLoading(true);
-		mView.hideError();
+		mView.hideErrors();
 
 		mOmiseClientManager.createPaymentToken(paymentModel,
 				new ResultCallback<String>() {
@@ -83,7 +87,7 @@ public class CharityDetailPresenterImpl implements CharityDetailPresenter {
 										if (mView == null) return;
 
 										mView.isLoading(false);
-										mView.hideError();
+										mView.hideErrors();
 										mView.navigateToNextScreen();
 									}
 
