@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.view.ViewCompat;
+import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.text.TextUtils;
 import android.view.View;
@@ -65,6 +66,11 @@ public class CharityDetailActivity extends AppCompatActivity {
 
 		((ApplicationClass) getApplication()).getComponent().inject(this);
 
+		ActionBar actionBar = getSupportActionBar();
+		if (actionBar != null) {
+			actionBar.setDisplayHomeAsUpEnabled(true);
+		}
+
 		setup(getIntent());
 	}
 
@@ -94,6 +100,12 @@ public class CharityDetailActivity extends AppCompatActivity {
 	protected void onStop() {
 		super.onStop();
 		mPresenter.stop();
+	}
+
+	@Override
+	public boolean onSupportNavigateUp() {
+		finish();
+		return true;
 	}
 
 	private void setup(Intent intent) {
