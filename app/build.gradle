@@ -47,6 +47,10 @@ android {
         compile 'com.squareup.okhttp3:logging-interceptor:3.9.1'
         compile 'com.squareup.picasso:picasso:2.5.2'
         compile 'co.omise:omise-android:2.6.2'
+        debugImplementation 'com.android.support.test.espresso.idling:idling-concurrent:3.0.1'
+        debugImplementation ('com.jakewharton.espresso:okhttp3-idling-resource:1.0.0') {
+            exclude module: 'support-annotations'
+        }
         testImplementation 'junit:junit:4.12'
         androidTestImplementation 'com.android.support.test:runner:1.0.1'
         androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.1'

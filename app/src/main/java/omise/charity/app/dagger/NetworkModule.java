@@ -8,6 +8,7 @@ import okhttp3.OkHttpClient;
 import okhttp3.logging.HttpLoggingInterceptor;
 import omise.charity.app.Constants;
 import omise.charity.app.charity.CharityDataService;
+import omise.charity.app.charity.charityList.IdlingResources;
 import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
 
@@ -25,6 +26,8 @@ public class NetworkModule {
 	@Provides
 	@Singleton
 	Retrofit providesRetrofitClient(OkHttpClient client) {
+		//This is being registered for testing purposes
+		IdlingResources.registerOkHttp(client);
 		return new Retrofit.Builder()
 				.baseUrl(Constants.BASE_URL)
 				.client(client)
