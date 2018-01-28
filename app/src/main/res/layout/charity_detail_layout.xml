@@ -13,7 +13,10 @@
 		xmlns:tools="http://schemas.android.com/tools"
 		android:layout_width="match_parent"
 		android:layout_height="wrap_content"
-		android:padding="@dimen/padding_double">
+		android:paddingBottom="@dimen/padding"
+		android:paddingLeft="@dimen/padding_double"
+		android:paddingRight="@dimen/padding_double"
+		android:paddingTop="@dimen/padding_double">
 
 		<ImageView
 			android:id="@+id/charity_detail_logo"
