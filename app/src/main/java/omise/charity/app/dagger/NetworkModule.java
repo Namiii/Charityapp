@@ -6,6 +6,7 @@ import dagger.Module;
 import dagger.Provides;
 import okhttp3.OkHttpClient;
 import okhttp3.logging.HttpLoggingInterceptor;
+import omise.charity.app.BuildConfig;
 import omise.charity.app.Constants;
 import omise.charity.app.charity.CharityDataService;
 import omise.charity.app.charity.charityList.IdlingResources;
@@ -27,7 +28,9 @@ public class NetworkModule {
 	@Singleton
 	Retrofit providesRetrofitClient(OkHttpClient client) {
 		//This is being registered for testing purposes
-		IdlingResources.registerOkHttp(client);
+		if (BuildConfig.DEBUG) {
+			IdlingResources.registerOkHttp(client);
+		}
 		return new Retrofit.Builder()
 				.baseUrl(Constants.BASE_URL)
 				.client(client)
