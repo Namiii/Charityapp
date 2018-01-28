@@ -9,7 +9,7 @@
 	<string name="charity_detail_name_error">Enter a valid name</string>
 	<string name="charity_detail_credit_card_error">Enter a valid card number</string>
 	<string name="charity_detail_security_code_error">Enter a valid security code</string>
-	<string name="charity_detail_amount_error">Enter a valid security code</string>
+	<string name="charity_detail_amount_error">Enter a valid Amount</string>
 	<string name="donation_success_message">Thank you for your donation</string>
 	<string name="donation_dismiss_button">Dismiss</string>
 </resources>
