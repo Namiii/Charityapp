@@ -97,7 +97,7 @@ public class CharityDetailActivity extends AppCompatActivity {
 	}
 
 	private void setup(Intent intent) {
-		mExpiryMonthSpinner.setAdapter(new MontlyAdapter());
+		mExpiryMonthSpinner.setAdapter(new MonthlyAdapter());
 		mExpiryYearSpinner.setAdapter(new YearlyAdapter());
 
 		Bundle bundle = intent.getExtras();

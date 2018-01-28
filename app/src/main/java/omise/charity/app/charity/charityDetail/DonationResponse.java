@@ -40,31 +40,12 @@ public class DonationResponse implements Parcelable {
 		this.errorMessage = ((String) in.readValue((String.class.getClassLoader())));
 	}
 
-	public DonationResponse() {
-	}
-
 	public boolean isSuccess() {
 		return success;
 	}
 
-	public void setSuccess(boolean success) {
-		this.success = success;
-	}
-
-	public String getErrorCode() {
-		return errorCode;
-	}
-
-	public void setErrorCode(String errorCode) {
-		this.errorCode = errorCode;
-	}
-
 	public String getErrorMessage() {
 		return errorMessage;
-	}
-
-	public void setErrorMessage(String errorMessage) {
-		this.errorMessage = errorMessage;
 	}
 
 	public void writeToParcel(Parcel dest, int flags) {

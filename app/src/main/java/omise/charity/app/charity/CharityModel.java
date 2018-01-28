@@ -40,9 +40,6 @@ public class CharityModel implements Parcelable {
 		this.logoUrl = ((String) in.readValue((String.class.getClassLoader())));
 	}
 
-	public CharityModel() {
-	}
-
 	public long getId() {
 		return id;
 	}
@@ -61,10 +58,6 @@ public class CharityModel implements Parcelable {
 
 	public String getLogoUrl() {
 		return logoUrl;
-	}
-
-	public void setLogoUrl(String logoUrl) {
-		this.logoUrl = logoUrl;
 	}
 
 	public void writeToParcel(Parcel dest, int flags) {

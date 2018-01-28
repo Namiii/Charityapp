@@ -40,17 +40,6 @@ public class CharityList implements Parcelable
         in.readList(this.data, (CharityModel.class.getClassLoader()));
     }
 
-    public CharityList() {
-    }
-
-    public long getTotal() {
-        return total;
-    }
-
-    public void setTotal(long total) {
-        this.total = total;
-    }
-
     public List<CharityModel> getData() {
         return data;
     }

@@ -1,6 +1,6 @@
 package omise.charity.app;
 
 public interface ResultCallback<T> {
-	public void Success(T t);
-	public void failed(String error);
+	void Success(T t);
+	void failed(String error);
 }

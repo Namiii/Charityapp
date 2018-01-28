@@ -40,10 +40,6 @@ public class PaymentModel implements Parcelable {
 		return mSecurityCode;
 	}
 
-	public int getAmount() {
-		return mAmount;
-	}
-
 	@Override
 	public int describeContents() {
 		return 0;
